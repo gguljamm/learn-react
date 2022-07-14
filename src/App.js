@@ -5,7 +5,7 @@ import Comp20220708 from './components/20220708/index.js';
 import Comp20220712 from './components/20220712/index.js';
 import Comp20220712_2 from './components/20220712/TodoWrapper.js';
 import Comp20220712_3 from './components/20220712_homework/index.js';
-import Login from './components/20220712_homework/Login.js';
+import LoginHome from './components/20220712_homework/LoginHome.js';
 
 function Header() {
   const location = useLocation();
@@ -59,7 +59,7 @@ function App() {
   };
   return (
     !isLogged
-      ? <Login setLogin={ setLogin }></Login>
+      ? <LoginHome setLogin={ setLogin }></LoginHome>
       : <div>
         <BrowserRouter>
           <Header></Header>
