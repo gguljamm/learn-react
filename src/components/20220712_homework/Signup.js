@@ -1,7 +1,9 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useContext } from 'react';
+import { MyContext } from '../../features/auth/AuthContext';
 import Timer from './Timer';
 
-const Signup = ({ setLogin, dispatch }) => {
+const Signup = ({ dispatch }) => {
+  const { setLogin } = useContext(MyContext);
   const [inputState, setInputState] = useState({
     id: '',
     password: '',

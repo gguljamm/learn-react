@@ -43,10 +43,10 @@ function App() {
 }
 
 function Content() {
-  const { isLogged, setLogin } = useContext(MyContext);
+  const { isLogged } = useContext(MyContext);
   return (
     !isLogged ?
-    <LoginHome setLogin={setLogin}></LoginHome>
+    <LoginHome></LoginHome>
     :
     <BrowserRouter>
       <Header></Header>

@@ -13,11 +13,11 @@ const reducer = (state, action) => {
   }
 };
 
-function App({ setLogin }) {
+function App() {
   const [page, dispatch] = useReducer(reducer, 'login');
   return (
     <>
-      { page === 'login' ? <Login setLogin={setLogin} dispatch={dispatch} /> : <Signup setLogin={setLogin} dispatch={dispatch} /> }
+      { page === 'login' ? <Login dispatch={dispatch} /> : <Signup dispatch={dispatch} /> }
     </>
   );
 }
