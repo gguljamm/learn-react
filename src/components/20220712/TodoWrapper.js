@@ -73,7 +73,7 @@ function App() {
     }
   }, [JSON.stringify(list)]);
   return (
-    <div style={{ width: '500px', margin: '0 auto', border: '1px solid #eee', padding: '20px' }}>
+    <div>
       <h1>To Do List</h1>
       <ToDoList list={list} deleteTodo={deleteTodo} clickTodo={clickTodo} editTodo={editTodo}></ToDoList>
       {

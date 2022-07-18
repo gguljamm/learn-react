@@ -36,7 +36,7 @@ function App() {
   };
 
   return (
-    <div style={{ height: '100000px', width: '500px', margin: '0 auto', border: '1px solid #eee', padding: '20px' }}>
+    <div style={{ height: '100000px' }}>
       { /* 비제어 컴포넌트 */ }
       <div>
         <div>비제어 컴포넌트 input</div>

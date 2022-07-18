@@ -90,7 +90,7 @@ function App() {
     console.log(inputText);
   });
   return (
-    <div style={{ width: '500px', margin: '0 auto', border: '1px solid #eee', padding: '20px' }}>
+    <div>
       <h1>To....Do......L...I....S......T.....</h1>
       <ToDoList list={list} deleteTodo={deleteTodo} clickTodo={clickTodo}></ToDoList>
       <div style={{ marginTop: '20px' }}>

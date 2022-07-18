@@ -48,7 +48,7 @@ const Signup = ({ dispatch }) => {
     textDecoration: 'line-through',
   };
   return (
-    <div style={{ width: '500px', margin: '0 auto', border: '1px solid #eee', padding: '20px' }}>
+    <div>
       <h1>회원가입</h1>
       <ul>
         <li style={{ marginBottom: '10px' }}>아이디: <input value={ inputState.id } onChange={ evt => changeInput('id', evt) } /></li>

@@ -22,7 +22,7 @@ const Login = ({ dispatch }) => {
     }
   };
   return (
-    <div style={{ width: '500px', margin: '0 auto', border: '1px solid #eee', padding: '20px' }}>
+    <div>
       <h1>로그인</h1>
       <ul>
         <li style={{ marginBottom: '10px' }}>아이디: <input ref={ inputId } /></li>

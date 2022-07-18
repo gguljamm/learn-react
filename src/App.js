@@ -22,7 +22,7 @@ function Header() {
     textDecoration: 'underline',
   };
   return (
-    <header style={{ width: '542px', margin: '0 auto', lineHeight: '50px' }}>
+    <header style={{ lineHeight: '50px' }}>
       <Link style={{ ...linkStyle, ...(location.pathname === '/' ? activeLinkStyle : {}) }} to="/">랜딩</Link>
       <Link style={{ ...linkStyle, ...(location.pathname === '/20220701' ? activeLinkStyle : {}) }} to="/20220701">07.01</Link>
       <Link style={{ ...linkStyle, ...(location.pathname === '/20220708' ? activeLinkStyle : {}) }} to="/20220708">07.08</Link>
@@ -45,21 +45,24 @@ function App() {
 function Content() {
   const { isLogged } = useContext(MyContext);
   return (
-    !isLogged ?
-    <LoginHome></LoginHome>
-    :
-    <BrowserRouter>
-      <Header></Header>
-      <Routes>
-        <Route path='/' element={<div style={{width: '542px', margin: '0 auto'}}>하이용</div>}></Route>
-        <Route path='/20220701' element={<Comp20220701/>}></Route>
-        <Route path='/20220708' element={<Comp20220708/>}></Route>
-        <Route path='/20220712' element={<Comp20220712/>}></Route>
-        <Route path='/20220712_2' element={<Comp20220712_2/>}></Route>
-        <Route path='/20220712_3' element={<Comp20220712_3/>}></Route>
-        <Route path='*' element={<div style={{width: '542px', margin: '0 auto'}}>404 NOT FOUND</div>}></Route>
-      </Routes>
-    </BrowserRouter>
+    <div style={{ width: '500px', margin: '0 auto', border: '1px solid #eee', padding: '20px' }}>
+      {
+        !isLogged
+        ? <LoginHome></LoginHome>
+        : <BrowserRouter>
+            <Header></Header>
+            <Routes>
+              <Route path='/' element={<div>하이용</div>}></Route>
+              <Route path='/20220701' element={<Comp20220701/>}></Route>
+              <Route path='/20220708' element={<Comp20220708/>}></Route>
+              <Route path='/20220712' element={<Comp20220712/>}></Route>
+              <Route path='/20220712_2' element={<Comp20220712_2/>}></Route>
+              <Route path='/20220712_3' element={<Comp20220712_3/>}></Route>
+              <Route path='*' element={<div>404 NOT FOUND</div>}></Route>
+            </Routes>
+          </BrowserRouter>
+      }
+    </div>
   )
 }
 

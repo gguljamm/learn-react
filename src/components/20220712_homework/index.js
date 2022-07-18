@@ -4,7 +4,7 @@ import { MyContext } from '../../features/auth/AuthContext';
 function App() {
   const { authData, setLogin } = useContext(MyContext);
   return (
-    <div style={{ width: '500px', margin: '0 auto', border: '1px solid #eee', padding: '20px' }}>
+    <div>
       <h1>내 정보</h1>
       <ul>
         <li style={{ marginBottom: '10px' }}>아이디: { authData.current.id }</li>
