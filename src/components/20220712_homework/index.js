@@ -1,4 +1,8 @@
-function App({ authData, setLogin }) {
+import { useContext } from 'react';
+import { MyContext } from '../../features/auth/AuthContext';
+
+function App() {
+  const { authData, setLogin } = useContext(MyContext);
   return (
     <div style={{ width: '500px', margin: '0 auto', border: '1px solid #eee', padding: '20px' }}>
       <h1>내 정보</h1>
