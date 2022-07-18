@@ -43,7 +43,7 @@ function App() {
 }
 
 function Content() {
-  const { isLogged, setLogin, authData } = useContext(MyContext);
+  const { isLogged, setLogin } = useContext(MyContext);
   return (
     !isLogged ?
     <LoginHome setLogin={setLogin}></LoginHome>
