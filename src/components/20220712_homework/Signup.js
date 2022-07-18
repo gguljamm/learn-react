@@ -33,13 +33,21 @@ const Signup = ({ setLogin, dispatch }) => {
 
   useEffect(() => {
     setValid({
+      ...valid,
       empty: !Object.values(inputState).some((v) => !v),
       matchPassword: (inputState.password && inputState.confirmPassword && ( inputState.password === inputState.confirmPassword )),
-      email: /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(inputState.email),
+      email: /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(inputState.email),
       phone: /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/.test(inputState.phone),
-      isHuman: valid.isHuman,
     })
   }, [inputState.id, inputState.password, inputState.confirmPassword, inputState.email, inputState.phone]);
+
+  useEffect(() => {
+    return () => {
+      if (validTimeoutRef.current) {
+        clearInterval(validTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const changeInput = ( key, evt ) => {
     setInputState({ ...inputState, ...{ [key]: evt.currentTarget.value } });
@@ -64,7 +72,16 @@ const Signup = ({ setLogin, dispatch }) => {
     if (flag) {
       setValidCount(180);
       validTimeoutRef.current = setInterval(() => {
-        setValidCount(validCountRef.current - 1);
+        if (validCountRef.current > 0) {
+          setValidCount(validCountRef.current - 1);
+        } else {
+          clearInterval(validTimeoutRef.current);
+          setValidNumberState({
+            isShowCheck: false,
+            validNumber: '',
+            validCheckNumber: '',
+          });
+        }
       }, 1000);
       setValidNumberState({
         isShowCheck: true,
