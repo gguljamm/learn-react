@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, createContext } from 'react';
 
-export const MyContext = createContext(null);
+export const AuthContent = createContext(null);
 
 function AuthProvider({ children }) {
   const [isLogged, setLogged] = useState(false);
@@ -27,7 +27,7 @@ function AuthProvider({ children }) {
       setLogged(false);
     }
   };
-  return <MyContext.Provider value={{ isLogged, setLogin, authData }}>{ children }</MyContext.Provider>
+  return <AuthContent.Provider value={{ isLogged, setLogin, authData }}>{ children }</AuthContent.Provider>
 }
 
 export default AuthProvider;

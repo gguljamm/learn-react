@@ -1,8 +1,8 @@
 import { useRef, useContext } from 'react';
-import { MyContext } from '../../features/auth/AuthContext';
+import { AuthContent } from '../../features/auth/AuthProvider';
 
 const Login = ({ dispatch }) => {
-  const { setLogin } = useContext(MyContext);
+  const { setLogin } = useContext(AuthContent);
   const inputId = useRef(null);
   const inputPassword = useRef(null);
 

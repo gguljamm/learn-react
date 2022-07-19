@@ -6,7 +6,7 @@ import Comp20220712 from './components/20220712/index.js';
 import Comp20220712_2 from './components/20220712/TodoWrapper.js';
 import Comp20220712_3 from './components/20220712_homework/index.js';
 import LoginHome from './components/20220712_homework/LoginHome.js';
-import AuthContext, { MyContext } from './features/auth/AuthContext';
+import AuthProvider, { AuthContext } from './features/auth/AuthProvider';
 
 function Header() {
   const location = useLocation();
@@ -36,14 +36,14 @@ function Header() {
 function App() {
 
   return (
-    <AuthContext>
+    <AuthProvider>
       <Content></Content>
-    </AuthContext>
+    </AuthProvider>
   );
 }
 
 function Content() {
-  const { isLogged } = useContext(MyContext);
+  const { isLogged } = useContext(AuthContext);
   return (
     <div style={{ width: '500px', margin: '0 auto', border: '1px solid #eee', padding: '20px' }}>
       {
